@@ -1,0 +1,27 @@
+char	1	-127 to 127 or 0 to 255[1]
+
+unsigned char	1	0 to 255[3]
+
+signed char	1	-127 to 127[3]
+
+short int	2	-32,768 to 32,767[1]
+
+unsigned short int	2	0 to 65,535[1]
+
+int	4	-2,147,483,648 to 2,147,483,647[1]
+
+unsigned int	4	0 to 4,294,967,295[1]
+
+long int	8	-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807[1]
+
+unsigned long int	8	0 to 18,446,744,073,709,551,615[1]
+
+long long int	8	-(2^63) to (2^63)-1[1]
+
+unsigned long long int	8	0 to 18,446,744,073,709,551,615[1]
+
+float	4	Stores fractional numbers with 6-7 decimal digits of precision.[4]
+
+double	8	Stores fractional numbers with greater precision than float.[4]
+
+bool	1	true or false

@@ -106,7 +106,7 @@ cfcontest() {
     mkdir -p "$base"
     for p in A B C D E F; do
         mkdir -p "$base/$p"
-        cp ~/codeforces/template.cpp "$base/$p/$p.cpp"
+        cp /media/data/Codeforces/template.cpp "$base/$p/$p.cpp"
     done
     touch "$base/input.txt" "$base/expected.txt"
     echo "✅ Contest $1 setup at $base (common input/output at root)"
