@@ -149,7 +149,23 @@
 
 int main(){
     TESTCASE{
-        cout<<"ENDL";
+        int a ;
+        int b ;
+        int c ;
+        cin >> a >> b>>c;
+
+        if ((a == b) || (b== c) || (a ==c)){
+          cout<<"0"<<endl;
+          continue;
+        }
+        int sums = a + b + c;
+        int minn = min(a,min(b,c));
+        int maxx = max(a,max(b,c));
+
+        int middle = sums - minn - maxx;
+        int diff = -100000;
+        diff = min((middle - minn) , (maxx - middle));
+        cout<<diff<<endl;
     }
     return 0;
 }

@@ -149,7 +149,69 @@
 
 int main(){
     TESTCASE{
-        cout<<"ENDL";
+        int n = 0;
+        cin >> n;
+        string a;
+        string b;
+        cin >> a >> b;
+        int even = 0;
+        int odd = 0;
+
+        vector<int> evenone(n,0);
+        vector<int> oddone(n,0);
+
+        vector<int> Bevenone(n,0);
+        vector<int> Boddone(n,0);
+
+        for(int i = 0;i<n;i++){
+          if (a[i] == '1' && i % 2 == 0){
+              evenone.push_back(i);
+              even++;
+          }
+          else{
+            if(a[i] == '1'){
+              oddone.push_back(i);
+              odd++;
+            }
+          }
+        }
+
+        int evencopy = even;
+        int oddcopy = odd;
+
+        for(int i = 0;i<n;i++){
+           if (b[i] == '1' && i % 2 == 0){
+              Bevenone.push_back(i);
+              even--;
+          }
+          else{
+            if(b[i] == '1'){
+              Boddone.push_back(i);
+              odd--;
+            }
+          }
+        }
+
+        if(!(odd || even)){
+        }
+        else{
+          cout << "-1"<<endl;
+          continue;
+        }
+
+        int req = 0;
+        int req2 = 0;
+        for(int k = 0 ;k<evenone.size();k++){
+            req += abs(evenone[k] - Bevenone[k])/2;
+
+        }
+        for(int l = 0;l<oddone.size();l++){
+            req += abs(oddone[l] - Boddone[l])/2;
+
+        }
+        cout << req << endl;
+
+
     }
     return 0;
 }

@@ -149,7 +149,41 @@
 
 int main(){
     TESTCASE{
-        cout<<"ENDL";
+        int n = 0;
+        cin >> n;
+        string a;
+        string b;
+        cin >> a >> b;
+        int even = 0;
+        int odd = 0;
+        for(int i = 0;i<n;i++){
+          if (a[i] == '1' && i % 2 == 0){
+              even++;
+          }
+          else{
+            if(a[i] == '1'){
+              odd++;
+            }
+          }
+        }
+
+        for(int i = 0;i<n;i++){
+           if (b[i] == '1' && i % 2 == 0){
+              even--;
+          }
+          else{
+            if(b[i] == '1'){
+              odd--;
+            }
+          }
+        }
+
+        if(!(odd || even)){
+          cout << "YES" << endl;
+        }
+        else{
+          cout << "NO"<<endl;
+        }
     }
     return 0;
 }
