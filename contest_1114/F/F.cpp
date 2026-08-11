@@ -122,6 +122,10 @@
   #define WRITE_VEC_I(val)                                                       \
     for (auto e : val)                                                           \
       printf("%d ", e);
+  #define PRINT_VECTOR(val)                                                       \
+    for (auto e : val)                                                           \
+      std::cout << e;
+    
       
   #define pb push_back
   #define eb emplace_back
@@ -144,12 +148,46 @@
 /*
  * JUST FOR REMINDER, REP(n) leaks 't' of integer type for index
  * 
- */ 
+ */
 
+void insert(vector<int> &a,int num){
+    if(a.size() == 0 || a.back() >= num){
+        a.push_back(num);
+        return;
+    }
+    int val = a.back();
+    a.pop_back();
+    insert(a,num);
+    a.push_back(val);
+    return;
+}
+void giveSorted(vector<int> &a){
+    if(a.size()==0){
+      return;
+    }
+    int temp = a.back();
+    a.pop_back();
+    giveSorted(a);
+    insert(a,temp);
+
+
+}
 
 int main(){
     TESTCASE{
-        cout<<"ENDL";
+        // sort the stack
+        int n = 0;
+        cin >> n;
+        vector<int> a(n,0);
+        for(int i = 0;i<n;i++){
+          cin >> a[i];
+        }
+        
+        giveSorted(a);
+        for(int i : a){
+          cout<<i;
+        }
+        
     }
     return 0;
 }

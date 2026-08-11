@@ -149,7 +149,60 @@
 
 int main(){
     TESTCASE{
-        cout<<"ENDL";
+      int n = 0;
+      cin >> n;
+      vector <int> v(n,-1);
+      for(int i = 0;i<n;i++){
+        cin>>v[i];
+      }
+      map<int,int> mp;
+      for(int i : v){
+          mp[i]++;
+      }
+      unordered_map<int,int> unmp;
+      // map will be ordeered
+      int prev = 0;
+      int last_nextvalue = -1;
+      for(auto it = mp.begin();it != mp.end(); ++it){
+          int x = it->first;
+          int times = it->second;
+
+          auto nextit = next(it);
+          if(nextit != mp.end()){
+            int nextvalue = nextit->first- prev;
+            int arrayValue = nextvalue /times;
+            if(arrayValue < last_nextvalue){
+              break;
+            }
+            last_nextvalue = arrayValue;
+            prev += nextvalue;
+            unmp[x] = arrayValue;
+          }
+          else{
+            if(mp[0] == n){
+              unmp[0] = 1;
+              break;
+            }else if(last_nextvalue == -1){
+              break;
+            }
+            unmp[x] = (last_nextvalue + 1)%10;
+          }
+
+      }
+      if(unmp.size() < mp.size()){
+        cout << "-1"<<endl;
+        continue;
+      }
+      vector<int> ans;
+      for(int i = 0;i<n;i++){
+          cout << unmp[v[i]];
+          if(i != n-1){
+            cout << " ";
+          }
+      }
+      cout << endl;
+      
+      
     }
     return 0;
 }
